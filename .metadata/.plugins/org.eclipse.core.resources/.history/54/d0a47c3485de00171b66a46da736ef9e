@@ -1,0 +1,41 @@
+import java.io.File;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+public class SaveVisitor implements Visitor {
+
+	public void visitSectiune(Sectiune s) {
+		
+	}
+
+	public void visitImageProxy(ImageProxy i) {
+
+	}
+
+	public void visitImagine(Image i) {
+		
+	}
+
+	public void visitParagraf(Paragraf p) {
+		try {
+			File file = new File("E:\\facultate\\Anul III\\Sabloane de proiectare\\Laborator 5\\Laborator 5\\src\\save.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(ImageProxy.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+			
+			// output pretty printed
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			
+			jaxbMarshaller.marshal(p, file);
+			jaxbMarshaller.marshal(p, System.out);
+		
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void visitTabel(Tabel t) {
+		
+	}
+
+}

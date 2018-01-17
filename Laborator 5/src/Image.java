@@ -1,0 +1,60 @@
+import java.util.Vector;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Image implements Element {
+	private String fileName;
+	
+	Image() { }
+	Image(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+	
+	@XmlElement
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public void print() {
+		System.out.print(fileName);
+	}
+
+	@Override
+	public void add(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remove(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Element getElement(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Element> getElement() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void accept(Visitor v) {
+		v.visitImagine(this);
+	}
+
+	public void save(Visitor v) {
+		v.visitImagine(this);
+	}
+
+}

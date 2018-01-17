@@ -1,0 +1,26 @@
+
+public class Test {
+	public static void main(String[] args) {
+		Element book = new Sectiune("My book");
+		DocumentStatisticsVisitor v = new DocumentStatisticsVisitor();
+		book.accept(v);
+		v.printStatistics();
+		
+		SaveVisitor s = new SaveVisitor();
+		
+		Element paragraf = new Paragraf("abc");
+		paragraf.save(s);
+		
+		Element tabel = new Tabel("tabel1");
+		tabel.save(s);
+		
+		Element imagine = new Image("imagine1");
+		imagine.save(s);
+		
+		Element imagineProxy = new ImageProxy("A", new Image("B"));
+		imagineProxy.save(s);
+		
+		//Element sectiune = new Sectiune("sectiune1");
+		//sectiune.save(s);
+	}
+}

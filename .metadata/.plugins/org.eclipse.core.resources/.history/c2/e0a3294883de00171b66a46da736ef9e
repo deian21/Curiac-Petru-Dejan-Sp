@@ -1,0 +1,32 @@
+import java.io.File;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+public class SaveVisitor implements Visitor {
+
+	public void visitSectiune(Sectiune s) {
+		
+	}
+
+	public void visitImageProxy(ImageProxy i) {
+		try {
+			File file = new File("E:\\facultate\\Anul III\\Sabloane de proiectare\\Laborator 5\\Laborator 5\\src\\save.xml");
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void visitImagine(Image i) {
+		
+	}
+
+	public void visitParagraf(Paragraf i) {
+		
+	}
+
+	public void visitTabel(Tabel t) {
+		
+	}
+
+}

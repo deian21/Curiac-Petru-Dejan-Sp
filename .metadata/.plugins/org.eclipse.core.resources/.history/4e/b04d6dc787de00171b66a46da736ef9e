@@ -1,0 +1,86 @@
+import java.io.File;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+public class SaveVisitor implements Visitor {
+
+	public void visitSectiune(Sectiune s) {
+		
+	}
+
+	public void visitImageProxy(ImageProxy i) {
+		try {
+			File file = new File("E:\\facultate\\Anul III\\Sabloane de proiectare\\Laborator 5\\Laborator 5\\src\\save.xml");
+			JAXBContext jaxbContext1 = JAXBContext.newInstance(ImageProxy.class);
+			JAXBContext jaxbContext2 = JAXBContext.newInstance(ImageProxy.class);
+			Marshaller jaxbMarshaller1 = jaxbContext1.createMarshaller();
+			Marshaller jaxbMarshaller2 = jaxbContext2.createMarshaller();
+			
+			// output pretty printed
+			jaxbMarshaller1.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			jaxbMarshaller2.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			
+			jaxbMarshaller1.marshal(i, file);
+			jaxbMarshaller1.marshal(i, System.out);
+			
+			jaxbMarshaller2.marshal(i, file);
+			jaxbMarshaller2.marshal(i, System.out);
+		
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void visitImagine(Image i) {
+		try {
+			File file = new File("E:\\facultate\\Anul III\\Sabloane de proiectare\\Laborator 5\\Laborator 5\\src\\save.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(Image.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+			
+			// output pretty printed
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			
+			jaxbMarshaller.marshal(i, file);
+			jaxbMarshaller.marshal(i, System.out);
+		
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void visitParagraf(Paragraf p) {
+		try {
+			File file = new File("E:\\facultate\\Anul III\\Sabloane de proiectare\\Laborator 5\\Laborator 5\\src\\save.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(Paragraf.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+			
+			// output pretty printed
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			
+			jaxbMarshaller.marshal(p, file);
+			jaxbMarshaller.marshal(p, System.out);
+		
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void visitTabel(Tabel t) {
+		try {
+			File file = new File("E:\\facultate\\Anul III\\Sabloane de proiectare\\Laborator 5\\Laborator 5\\src\\save.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(Tabel.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+			
+			// output pretty printed
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			
+			jaxbMarshaller.marshal(t, file);
+			jaxbMarshaller.marshal(t, System.out);
+		
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

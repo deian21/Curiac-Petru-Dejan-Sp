@@ -1,0 +1,60 @@
+import java.util.Vector;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Paragraf implements Element {
+	String text;
+	AlignStrategy align;
+	
+	Paragraf() { }
+	Paragraf(String text) {
+		this.text = text;
+	}
+	
+	public String getText() {
+		return text;
+	}
+	
+	@XmlElement
+	public void setText(String text) {
+		this.text = text;
+	}
+	public void add(Element e) {
+		
+	}
+
+	public void remove(Element e) {
+		
+	}
+
+	public Element getElement(int i) {
+		return null;
+	}
+
+	public Vector<Element> getElement() {
+		return null;
+	}
+
+	public void print() {
+		if (align != null) {
+			align.print(text);
+		} else {
+			System.out.println(text);
+		}
+		
+	}
+
+	public void setAlign(AlignStrategy align) {
+		this.align = align;
+	}
+
+	public void accept(Visitor v) {
+		v.visitParagraf(this);
+	}
+
+	public void save(Visitor v) {
+		v.visitParagraf(this);
+	}
+}

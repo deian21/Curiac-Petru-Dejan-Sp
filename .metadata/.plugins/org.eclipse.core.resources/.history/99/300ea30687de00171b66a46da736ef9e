@@ -1,0 +1,16 @@
+
+public class Test {
+	public static void main(String[] args) {
+		Element book = new Sectiune("My book");
+		DocumentStatisticsVisitor v = new DocumentStatisticsVisitor();
+		book.accept(v);
+		v.printStatistics();
+		
+		Element paragraf = new Paragraf("abc");
+		SaveVisitor s = new SaveVisitor();
+		paragraf.save(s);
+		
+		Element tabel = new Tabel("tabel1");
+		tabel.save(s);
+	}
+}
